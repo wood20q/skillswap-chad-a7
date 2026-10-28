@@ -1,0 +1,24 @@
+{
+  "name": "skillswap-chad-a6",
+  "version": "1.0.0",
+  "description": "Skill swap is a website designed to help students find/host tutoring services for classes the are/have taken.",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wood20q/skillswap-chad-a6.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/wood20q/skillswap-chad-a6/issues"
+  },
+  "homepage": "https://github.com/wood20q/skillswap-chad-a6#readme",
+  "devDependencies": {
+    "jest": "^30.5.2"
+  }
+}

@@ -1,0 +1,290 @@
+/* Mocha theme from Catppuccin */
+:root {
+  --rosewater: #f5e0dc;
+  --flamingo: #f2cdcd;
+  --pink: #f5c2e7;
+  --mauve: #cba6f7;
+  --red: #f38ba8;
+  --maroon: #eba0ac;
+  --peach: #fab387;
+  --yellow: #f9e2af;
+  --green: #a6e3a1;
+  --teal: #94e2d5;
+  --sky: #89dceb;
+  --sapphire: #74c7ec;
+  --blue: #89b4fa;
+  --lavender: #b4befe;
+  --text: #cdd6f4;
+  --subtext1: #bac2de;
+  --subtext0: #a6adc8;
+  --overlay2: #9399b2;
+  --overlay1: #7f849c;
+  --overlay0: #6c7086;
+  --surface2: #585b70;
+  --surface1: #45475a;
+  --surface0: #313244;
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+}
+
+/* Set up CSS */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    background-color: var(--crust);
+    color: var(--text);
+}
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100dvh;
+}
+
+.disabled { display: none !important;}
+
+/* General Styling */
+a {
+    text-decoration: none;
+    color: var(--text);
+}
+
+a:visited {
+    color: var(--text);
+}
+
+button {
+    background-color: var(--mauve);
+    color: var(--crust);
+    padding: 0.5em 1em;
+    border-radius: 100vh;
+    border: none;
+    cursor: pointer;
+}
+
+/* Header Styling */
+header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    padding: 0 1em;
+    gap: 0.5em;
+    background-color: var(--base);
+    align-items: center;
+}
+
+/* Nav bar styling */
+nav { justify-self: end;}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav li a {
+    display: inline-block;
+    padding: 0.75em 0.5em;
+}
+
+nav li a.selected,
+nav li a:hover {
+    background-color: var(--mauve);
+    color: var(--crust);
+    transition: 250ms;
+}
+
+/* Search Styling */
+.searchWrapper {
+    display: flex;
+    gap: 0.5em;
+}
+
+.searchWrapper input {
+    background-color: var(--surface0);
+    color: var(--text);
+    padding: 0.25em 1em;
+    border-radius: 100vh;
+    border: 3px solid var(--mauve);
+}
+
+/* Title Block */
+.titleBar {
+    display: flex;
+    background-color: var(--surface0);
+    height: 15em;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Featured Skills Styling */
+.featuredSkills {
+    padding: 2.5em 1em;
+}
+
+.featuredSkillsWrapper {
+    display: grid;
+    gap: 1em;
+    grid-template-columns: repeat(auto-fit, minMax(360px, 1fr));
+    padding: 2.5em 0.5em;
+}
+
+/* Filtering */
+.filterWrapper {
+    display: flex;
+    padding: 1.5em 0.5em;
+    gap: 1em;
+}
+
+.filters {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5em;
+}
+
+.filterBTN {
+    background-color: var(--crust);
+    color: var(--text);
+    outline: solid 2px var(--mauve);
+}
+
+.filterBTN.selected {
+    background-color: var(--mauve);
+    color: var(--crust);
+}
+
+/* Advanced Filter */
+.advancedFilterWrapper {
+    display: grid;
+    background-color: var(--surface0);
+    padding: 1em;
+    border-radius: 25px;
+}
+
+.advancedFilterBox {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.category,
+.maxPrice {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    flex: 1 1;
+}
+
+#findButton {
+    flex: 0 0;
+    padding: 0.5em 2em;
+}
+
+.advancedFilterBox input,
+.advancedFilterBox select {
+    background-color: var(--surface0);
+    color: var(--text);
+    padding: 0.25em 1em;
+    border-radius: 100vh;
+    border: 3px solid var(--mauve);
+}
+
+/* Skill Cards */
+.skillCard {
+    display: grid;
+    background-color: var(--surface0);
+    gap: 1em 0.5em;
+    padding: 1em;
+    border-radius: 25px;
+    align-items: center;
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+        "course course course"
+        "author authToPrice price"
+        "category category category"
+        "description description description"
+        "bookNow bookNow bookNow";
+}
+
+.course { grid-area: course; }
+.author { grid-area: author; }
+.category { grid-area: category; }
+.description { grid-area: description; }
+
+.bookNow {
+    grid-area: bookNow;
+    margin: auto;
+}
+
+.bookNow h2 { font-weight: normal;}
+
+.authorToPrice {
+    grid-area: authToPrice;
+    margin-left: 0.5em;
+    border: dashed 1.5px white;
+}
+
+.price {
+    grid-area: price;
+    border: solid 3px var(--mauve);
+    border-radius: 25px;
+    corner-shape: scoop;
+    text-align: center;
+    padding: 0.25em 1em;
+}
+
+/* Cost Calculator */
+.costCalculatorSection {
+    display: grid;
+    background-color: var(--surface0);
+    padding: 1em;
+    border-radius: 25px;
+    gap: 1em;
+}
+
+.costCalculatorWrapper {
+    display: grid;
+    gap: 1em;
+    grid-template-areas:
+        "hourlyCost hours"
+        "submit submit";
+}
+
+.hourlyCostWrapper {
+    display: flex;
+    grid-area: hourlyCost;
+    gap: 0.5em;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+}
+
+.hoursWrapper {
+    display: flex;
+    grid-area: hours;
+    gap: 1em;
+    justify-content: center;
+    align-items: center;
+    font-size: x-large;
+}
+
+#calculateButton {grid-area: submit; justify-self: center;}
+
+.costCalculatorSection input {
+    background-color: var(--surface0);
+    color: var(--text);
+    padding: 0.25em 1em;
+    border-radius: 100vh;
+    border: 3px solid var(--mauve);
+}
+
+/* Footer */
+footer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    padding: 0.5em 1em;
+    align-items: center;
+    background-color: var(--surface0);
+}

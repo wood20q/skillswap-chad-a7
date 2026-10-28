@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Skill Swap</title>
+</head>
+<body>
+    <header>
+        <h1>Skill Swap</h1>
+        <nav>
+            <ul>
+                <li><a href="" class="selected">Home</a></li>
+                <li><a href="">All Skills</a></li>
+                <li><a href="">Post Skill</a></li>
+                <li><a href="">About</a></li>
+            </ul>
+        </nav>
+        <div class="searchWrapper">
+            <input type="text" name="search" id="search">
+            <button type="submit" class="searchButton">Search</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="titleBar">
+            <h1>Share and Learn new skills with Skill Swap</h1>
+        </div>
+
+        <div class="featuredSkills">
+            <h1>Featured Skills</h1>
+            <div class="filterWrapper">
+                <h2>Filters:</h2>
+                <div class="filters">
+                    <button class="filterBTN selected" id="filterBTNAll" onclick="handleFilter('All')">All</button>
+                    <button class="filterBTN" id="filterBTNProgramming" onclick="handleFilter('Programming')">Programming</button>
+                    <button class="filterBTN" id="filterBTNMusic" onclick="handleFilter('Music')">Music</button>
+                    <button class="filterBTN" id="filterBTNCareer" onclick="handleFilter('Career')">Career</button>
+                    <button class="filterBTN" id="filterBTNAdvanced" onclick="handleFilter('Advanced')">Advanced</button>
+                </div>
+            </div>
+            <div class="advancedFilterWrapper" id="advancedFilterWrapper">
+                <h1>Advanced Filtering</h1>
+                <form class="advancedFilterBox" id="advancedFilterBox">
+                    <div class="category">
+                        <label for="categorySelector">Category:</label>
+                        <select name="category" id="categorySelector">
+                            <option value="All">All</option>
+                            <option value="Programming">Programming</option>
+                            <option value="Music">Music</option>
+                            <option value="Career">Career</option>
+                        </select>
+                    </div>
+                    <div class="maxPrice">
+                        <label for="maxPriceInput">Max Price/Hour:</label>
+                        <input type="number" name="maxPrice" id="maxPriceInput" step="0.01" required>
+                    </div>
+                    <button type="submit" id="findButton">Find</button>
+                </form>
+            </div>
+            <div class="featuredSkillsWrapper" id="skillsGrid">
+                
+            </div>
+
+            <div class="costCalculatorSection">
+                <h1 id="costTitle">Cost Calculator:</h1>
+                <h2 class="disabled" id="costLabel">Cost</h2>
+                <form class="costCalculatorWrapper" id="costCalculatorWrapper">
+                    <div class="hourlyCostWrapper">
+                        <label for="hourlyCost">Hourly Cost:</label>
+                        <input type="number" step="0.01" name="hourlyCost" id="hourlyCost" required>
+                    </div>
+                    <div class="hoursWrapper">
+                        <label for="hours">Total Hours:</label>
+                        <input type="number" step="0.01" name="hours" id="hours" required>
+                    </div>
+                    <button type="submit" id="calculateButton">Calculate</button>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <h2>Footer Text</h2>
+        <a href="https://github.com/wood20q/skillswap-chad" target="_blank">gitHub link</a>
+    </footer>
+</body>
+</html>
