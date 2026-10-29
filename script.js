@@ -69,6 +69,15 @@ async function loadSKillsFromAPI() {
     }
 }
 
+async function addSkill(newSkill) {
+    try {
+        await createSkill(newSkill)
+        await loadSKillsFromAPI()
+    } catch(error) {
+        alert(`Failed to add skill: ${error}`)
+    }
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
     await loadSKillsFromAPI()
 
@@ -82,7 +91,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const description = document.getElementById("description").value
 
         const newSkill = {"title":courseName,"description":description,"category":category,"price":JSON.parse(price),"provider":tutorName}
-        console.log(newSkill)
+        await addSkill(newSkill)
     })
     
     document.getElementById('costCalculatorWrapper').addEventListener('submit', (event) => {
