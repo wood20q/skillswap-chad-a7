@@ -240,6 +240,26 @@ nav li a:hover {
     margin-bottom: 2em;
 }
 
+#addSkill {
+    display: grid;
+    gap: 1em;
+    grid-template-areas:
+        "courseName tutorName"
+        "price category"
+        "description description"
+        "addSkillButton addSkillButton";
+}
+
+#courseNameWrapper { grid-area: courseName; }
+#tutorNameWrapper { grid-area: tutorName; }
+#priceWrapper { grid-area: price; }
+#categoryWrapper { grid-area: category; }
+#descriptionWrapper { grid-area: description; }
+#addCourseButton { grid-area: addSkillButton; justify-self: center;}
+
+#addSkill input,
+#addSkill select { flex: 1 1; }
+
 /* Cost Calculator */
 .formSection {
     display: grid;
@@ -271,7 +291,8 @@ nav li a:hover {
 
 #calculateButton {grid-area: submit; justify-self: center;}
 
-.formSection input {
+.formSection input,
+.formSection select {
     background-color: var(--surface0);
     color: var(--text);
     padding: 0.25em 1em;
