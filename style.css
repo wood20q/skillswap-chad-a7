@@ -235,8 +235,33 @@ nav li a:hover {
     padding: 0.25em 1em;
 }
 
+/* Add Skill */
+.addSkillSection {
+    margin-bottom: 2em;
+}
+
+#addSkill {
+    display: grid;
+    gap: 1em;
+    grid-template-areas:
+        "courseName tutorName"
+        "price category"
+        "description description"
+        "addSkillButton addSkillButton";
+}
+
+#courseNameWrapper { grid-area: courseName; }
+#tutorNameWrapper { grid-area: tutorName; }
+#priceWrapper { grid-area: price; }
+#categoryWrapper { grid-area: category; }
+#descriptionWrapper { grid-area: description; }
+#addCourseButton { grid-area: addSkillButton; justify-self: center;}
+
+#addSkill input,
+#addSkill select { flex: 1 1; }
+
 /* Cost Calculator */
-.costCalculatorSection {
+.formSection {
     display: grid;
     background-color: var(--surface0);
     padding: 1em;
@@ -252,19 +277,13 @@ nav li a:hover {
         "submit submit";
 }
 
-.hourlyCostWrapper {
-    display: flex;
-    grid-area: hourlyCost;
-    gap: 0.5em;
-    justify-content: center;
-    align-items: center;
-    font-size: x-large;
-}
+#hourlyCostWrapper { grid-area: hourlyCost; }
+#hoursWrapper { grid-area: hours; }
 
-.hoursWrapper {
+/* generic from element styling */
+.formElements {
     display: flex;
-    grid-area: hours;
-    gap: 1em;
+    gap: 0.5em;
     justify-content: center;
     align-items: center;
     font-size: x-large;
@@ -272,7 +291,8 @@ nav li a:hover {
 
 #calculateButton {grid-area: submit; justify-self: center;}
 
-.costCalculatorSection input {
+.formSection input,
+.formSection select {
     background-color: var(--surface0);
     color: var(--text);
     padding: 0.25em 1em;

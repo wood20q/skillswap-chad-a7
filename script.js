@@ -1,9 +1,4 @@
-const SKILLS = [
-  { id: 1, title: 'Python Tutoring', category: 'Programming', price: 20, name: 'Alice Smith', description: 'One-on-one sessions covering Python fundamentals, data structures, and practical coding exercises tailored to your skill level.' },
-  { id: 2, title: 'Guitar Lessons', category: 'Music', price: 15, name: 'Miguel Diaz', description: 'Personalized instruction for beginners and intermediate players focusing on chords, strumming patterns, and basic music theory.' },
-  { id: 3, title: 'Resume Review', category: 'Career', price: 0, name: 'Sarah Chen', description: 'Comprehensive feedback and formatting advice to highlight your strengths, optimize for ATS, and help you land more interviews.' },
-  { id: 4, title: 'Web Development', category: 'Programming', price: 25, name: 'David Kim', description: 'Custom website creation and front-end development services utilizing modern frameworks and responsive design principles.' }
-]
+let SKILLS = []
 
 // Testing Functions
 function filterSkillsByCategory (skillList, category) {
@@ -27,7 +22,7 @@ function loadFeaturedSkills(skillList) {
     SKILLSGRID.innerHTML = skillList.map((skillData, i) => `
         <div class="skillCard">
             <h1 class="course">${skillData.title}:</h1>
-            <h3 class="author">${skillData.name}</h3>
+            <h3 class="author">${skillData.provider}</h3>
             <hr class="authorToPrice"/>
             <h3 class="price">$${skillData.price}/hour</h3>
             <p class="category">Category: ${skillData.category}</p>
@@ -64,8 +59,41 @@ function handleFilter(type) {
     advancedFilteringSection.style.display = (type === "Advanced" ? "grid" : "none")
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    handleFilter("All")
+async function loadSKillsFromAPI() {
+    try {
+        const skillList = await fetchSkills()
+        SKILLS = skillList
+        handleFilter("All")
+    } catch(error) {
+        alert(`Failed to load with error: ${error}`)
+    }
+}
+
+async function addSkill(newSkill) {
+    try {
+        await createSkill(newSkill)
+        await loadSKillsFromAPI()
+        document.getElementById('addSkill').reset()
+    } catch(error) {
+        alert(`Failed to add skill: ${error}`)
+    }
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+    await loadSKillsFromAPI()
+
+    document.getElementById("addSkill").addEventListener("submit", async (event) => {
+        event.preventDefault()
+        
+        const courseName = document.getElementById("courseName").value
+        const tutorName = document.getElementById("tutorName").value
+        const price = document.getElementById("price").value
+        const category = document.getElementById("category").value
+        const description = document.getElementById("description").value
+
+        const newSkill = {"title":courseName,"description":description,"category":category,"price":JSON.parse(price),"provider":tutorName}
+        await addSkill(newSkill)
+    })
     
     document.getElementById('costCalculatorWrapper').addEventListener('submit', (event) => {
         event.preventDefault()
