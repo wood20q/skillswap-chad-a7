@@ -71,6 +71,19 @@ async function loadSKillsFromAPI() {
 
 document.addEventListener("DOMContentLoaded", async () => {
     await loadSKillsFromAPI()
+
+    document.getElementById("addSkill").addEventListener("submit", async (event) => {
+        event.preventDefault()
+        
+        const courseName = document.getElementById("courseName").value
+        const tutorName = document.getElementById("tutorName").value
+        const price = document.getElementById("price").value
+        const category = document.getElementById("category").value
+        const description = document.getElementById("description").value
+
+        const newSkill = {"title":courseName,"description":description,"category":category,"price":JSON.parse(price),"provider":tutorName}
+        console.log(newSkill)
+    })
     
     document.getElementById('costCalculatorWrapper').addEventListener('submit', (event) => {
         event.preventDefault()

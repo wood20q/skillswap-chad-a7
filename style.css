@@ -235,8 +235,13 @@ nav li a:hover {
     padding: 0.25em 1em;
 }
 
+/* Add Skill */
+.addSkillSection {
+    margin-bottom: 2em;
+}
+
 /* Cost Calculator */
-.costCalculatorSection {
+.formSection {
     display: grid;
     background-color: var(--surface0);
     padding: 1em;
@@ -252,19 +257,13 @@ nav li a:hover {
         "submit submit";
 }
 
-.hourlyCostWrapper {
-    display: flex;
-    grid-area: hourlyCost;
-    gap: 0.5em;
-    justify-content: center;
-    align-items: center;
-    font-size: x-large;
-}
+#hourlyCostWrapper { grid-area: hourlyCost; }
+#hoursWrapper { grid-area: hours; }
 
-.hoursWrapper {
+/* generic from element styling */
+.formElements {
     display: flex;
-    grid-area: hours;
-    gap: 1em;
+    gap: 0.5em;
     justify-content: center;
     align-items: center;
     font-size: x-large;
@@ -272,7 +271,7 @@ nav li a:hover {
 
 #calculateButton {grid-area: submit; justify-self: center;}
 
-.costCalculatorSection input {
+.formSection input {
     background-color: var(--surface0);
     color: var(--text);
     padding: 0.25em 1em;
