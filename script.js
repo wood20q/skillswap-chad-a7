@@ -73,6 +73,7 @@ async function addSkill(newSkill) {
     try {
         await createSkill(newSkill)
         await loadSKillsFromAPI()
+        document.getElementById('addSkill').reset()
     } catch(error) {
         alert(`Failed to add skill: ${error}`)
     }
